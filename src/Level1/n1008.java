@@ -7,8 +7,8 @@ public class n1008 {
 	public static void main(String[] args) {
         FastReader fr = new FastReader(); // 문제 해결 소스 코드
         
-        int A=fr.nextInt();
-        int B=fr.nextInt();
+        double A=fr.nextInt();
+        double B=fr.nextInt();
         
         System.out.println(A/B);
     }
