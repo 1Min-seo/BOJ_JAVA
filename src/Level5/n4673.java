@@ -12,6 +12,7 @@ public class n4673 {
 		}
 		return sum;
 	}
+	
 	public static void main(String[] args) {
         FastReader fr = new FastReader(); // 문제 해결 소스 코드
         boolean []arr=new boolean[10001];
