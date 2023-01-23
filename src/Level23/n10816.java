@@ -15,7 +15,6 @@ public class n10816 {
 		return end;
 	}
 	
-	
 	public static int upperBound(int []arr, int target, int start, int end) {
 		while(start<end){
 			int mid=(start+end)/2;
