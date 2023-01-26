@@ -42,6 +42,7 @@ public class n2110 {
 				start=mid+1;
 			}
 		}
+		
 		System.out.println(result);
 	}
 
