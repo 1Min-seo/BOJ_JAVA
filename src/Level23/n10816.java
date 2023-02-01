@@ -45,5 +45,4 @@ public class n10816 {
 		}
 		System.out.println(sb);
 	}
-
 }
