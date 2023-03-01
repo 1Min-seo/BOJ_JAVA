@@ -16,13 +16,13 @@ public class n2108 {
 		int N=Integer.parseInt(br.readLine());
 		
 		//산술평균
-		int sum=0;
+		double sum=0;
 		for(int i=0; i<N; i++) {
 			list.add(Integer.parseInt(br.readLine()));
 			sum+=list.get(i);
 		}
 		
-		System.out.println(sum/N);
+		System.out.println((int)Math.round((double)sum/N));
 		
 		//중앙값
 		Collections.sort(list);
@@ -45,7 +45,7 @@ public class n2108 {
 				 modelist.add(key);
 			 }
 		 }
-		
+		Collections.sort(modelist);
 		 int mode=0;
 		 if(modelist.size()==1) mode=modelist.get(0);
 		 else mode=modelist.get(1);
