@@ -50,7 +50,6 @@ public class n10816 {
 		
 		Arrays.sort(my);
 		
-		
 		int M=Integer.parseInt(br.readLine());
 		int []arr=new int[M];
 		
