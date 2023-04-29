@@ -3,11 +3,35 @@ package Level23;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class n2805 {
-
+	
+	public static int BinarySearch(int []trees, int start, int end, int target) {	
+		while(start<end) {
+			int mid=(start+end)/2;
+			int sum=0;
+			int remain=0;
+			for(int tree:trees) {
+				if(tree-mid<=0){
+					remain=0;
+				}else {
+					remain=tree-mid;
+				}
+				sum+=remain;
+			}
+			if(sum<target) {
+				end=mid;
+			}
+			else {
+				start=mid+1;
+			}
+		}
+		return start-1;
+	}
+	
 	public static void main(String[] args)throws Exception {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st=new StringTokenizer(br.readLine());
@@ -15,47 +39,35 @@ public class n2805 {
 		int N=Integer.parseInt(st.nextToken());
 		int M=Integer.parseInt(st.nextToken());
 		
-		ArrayList<Integer> tree=new ArrayList<>();
-		
+		int []trees=new int[N];
 		st=new StringTokenizer(br.readLine());
 		for(int i=0; i<N; i++) {
-			tree.add(Integer.parseInt(st.nextToken()));
+			trees[i]=Integer.parseInt(st.nextToken());
 		}
 		
-		Collections.sort(tree);
+		Arrays.sort(trees);
 		
-		/*
-		 [1단계] start=4, end=46 => mid=25
-		 가져가는 나무 (0+1+15+17+21)=>54
-		 
-		 [2단계]start=26, end=46 => mid=36
-		 가져가는 나무 (0+0+4+6+10) =>20
-		 
-		 [3단계]start=37, end=46 => mid=41
-		 가져가는 나무 (0+0+0+1+5) => 6 =========> M값보다 작으므로 안됨.
-		 */
-		int start=0;
-		int end=tree.get(N-1);
-		long result=0;
-		while(start<=end) {
-			int mid=(start+end)/2;
-			long sum=0;
-			
-			for(int i=0; i<N; i++) {
-				if(tree.get(i)>mid) {
-					sum+=tree.get(i)-mid;
-				}
-			}
-			if(sum>=M) {
-				// 가져가는 나무가 너무 많은 경우, 절단기 높이를 올려 더 잘라야 한다.
-				start=mid+1;
-				result=mid;
-			}
-			else {
-				//그렇지 않은 경우, 절단기 높이를 낮추기
-				end=mid-1;
-			}
-		}
+		int result=BinarySearch(trees, trees[0], trees[N-1],M);
+		
 		System.out.println(result);
 	}
 }
+
+
+/*
+ * n 나무 수  4 
+ * m 집으로 가져가려고 하는 나무 길이  7
+ * 높이의 최댓값 구하기
+ * 
+ * 20 15 10 17
+ * 
+ * 10  15  17  20
+ * 
+ * 절단기 (10+20)/2 => 15인 경우
+ * 5  0  0  2   => 7
+ * target이 7이랑 같으니 절단기 길이 반환
+ * 
+ * 
+ * 절단기가 나무 길이보다 크거나 같으면 0
+ * 절단기가 나무 길이보다 작으면 뺀 값 더하기
+ */
