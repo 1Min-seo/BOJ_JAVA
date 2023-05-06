@@ -1,2 +1,2 @@
 # BOJ_Java
-BOJ Solutions in Java
+BOJ Solutions in Java.
