@@ -39,7 +39,7 @@ public class n2805 {
 		
 		Arrays.sort(trees);
 		
-		int result=binarySearch(trees,1, trees[trees.length-1], M);
+		int result=binarySearch(trees,1, trees[trees.length-1]+1, M);
 		System.out.println(result);
 	}
 }
