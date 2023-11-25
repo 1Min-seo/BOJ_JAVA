@@ -17,8 +17,6 @@ public class n2606 {
 		
 		visited=new boolean[vertex+1];
 		
-		int start=1;
-		
 		for(int i=0; i<=vertex; i++) {
 			graph.add(new ArrayList<Integer>());
 		}
