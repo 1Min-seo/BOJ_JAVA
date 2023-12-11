@@ -1,5 +1,5 @@
 //01타일
-package Level18;
+package Level23;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

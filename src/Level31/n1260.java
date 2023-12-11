@@ -38,7 +38,7 @@ public class n1260 {
 		}
 		
 		for(int i=1; i<=vertex; i++) {
-			Collections.sort(graph.get(i));
+			Collections.sort(graph.get(i),Collections.reverseOrder());
 		}
 		
 		dfs(start);
