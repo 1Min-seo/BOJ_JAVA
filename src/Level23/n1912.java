@@ -14,24 +14,26 @@ public class n1912 {
 		int []dp=new int[n];
 		
 		StringTokenizer st=new StringTokenizer(br.readLine());
+		
 		for(int i=0; i<n; i++) {
 			arr[i]=Integer.parseInt(st.nextToken());
 		}
 		
+		int max= -10001;
 		dp[0]=arr[0];
-		int result=-1001;
 		
 		for(int i=1; i<n; i++) {
 			dp[i]=Math.max(dp[i-1]+arr[i], arr[i]);
 		}
 		
 		for(int i=0; i<n; i++) {
-			result=Math.max(result, dp[i]);
+			max=Math.max(max, dp[i]);
 		}
 		
-		System.out.println(result);
+		System.out.println(max);
 	}
-}
+		}
+	
 /*
  * 10	-4	3	1	5	6	-35	12	21	-1
  * 연속된 몇 개의 수를 선택해서 구할 수 있는 합 중 가장 큰 합 구하기
