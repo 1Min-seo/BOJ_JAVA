@@ -9,35 +9,30 @@ public class n20365 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
+		int t=Integer.parseInt(br.readLine());
+		
+		for(int i=0; i<t; i++) {
+			int n=Integer.parseInt(br.readLine());
+			int day[]=new int[n];
+			
+			StringTokenizer st=new StringTokenizer(br.readLine());
+			for(int j=0; i<n; i++) {
+				day[j]=Integer.parseInt(st.nextToken());
+			}
+			
+			int sum=0;
+			int result=0;
 
-		String str = br.readLine();
-		char arr[] = new char[str.length()];
-		
-		for(int i=0; i<str.length(); i++) {
-			arr[i]=str.charAt(i);
-		}
-		
-		int colorB = 0;
-		int colorR = 0;
-
-		if (arr[0] == 'B') {
-			colorR += 1;
-		} else {
-			colorB += 1;
-		}
-		
-		for (int i = 0; i < str.length() - 1; i++) {
-			if (arr[i] != arr[i + 1]) {
-				if (arr[i + 1] == 'B') {
-					colorR += 1;
-				} else {
-					colorB += 1;
+			for(int x=1; x<n; x++) {
+				for(int y=0; y<i; y++) {
+					if(day[x]>day[y]) {
+						sum+=day[x]-day[y];
+					}
+					result=Math.max(sum, result);
 				}
 			}
+			System.out.println(result);
 		}
-
-		System.out.println(Math.min(colorR, colorB) + 1);
 	}
 
 }
