@@ -41,5 +41,4 @@ public class n2812 {
 		
 		System.out.println(sb.toString());
 	}
-
 }
