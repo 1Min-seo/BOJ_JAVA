@@ -34,6 +34,7 @@ public class n1343 {
 					return;
 				}
 			}	
+			
 			if(i<arr.length-1) {
 				sb.append(".");
 			}else break;
