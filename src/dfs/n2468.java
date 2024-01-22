@@ -48,6 +48,7 @@ public class n2468 {
 		}
 
 		bw.write(result+" ");
+		bw.flush();
 		bw.close();
 	}
 
