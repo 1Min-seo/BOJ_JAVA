@@ -1,7 +1,9 @@
 package dfs;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class n2468 {
@@ -15,6 +17,7 @@ public class n2468 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		n = Integer.parseInt(br.readLine());
 		map = new int[n][n];
 
@@ -44,7 +47,8 @@ public class n2468 {
 			result = Math.max(result, cnt);
 		}
 
-		System.out.println(result);
+		bw.write(result+" ");
+		bw.close();
 	}
 
 	static int dfs(int x, int y, int h) {
