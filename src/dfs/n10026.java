@@ -39,19 +39,13 @@ public class n10026 {
 		visited=new boolean[n][n];
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
-				if(map[i][j]=='R') map[i][j]='G';{
-					if(!visited[i][j]) {	
-						resultb++;
-						dfs_b(i,j);
-					}		
+				if(map[i][j]=='R') {
+					map[i][j]='G';
 				}
-			}
-		}
-		
-		for(int i=0; i<n; i++) {
-			System.out.println();
-			for(int j=0; j<n; j++) {
-				System.out.print(map[i][j]+" ");
+				if(!visited[i][j]) {	
+					resultb++;
+					dfs_b(i,j);
+				}		
 			}
 		}
 		
@@ -86,11 +80,11 @@ public class n10026 {
 			int ny=y+dy[i];
 			
 			if(nx>=0 && ny>=0 && nx<n && ny<n && !visited[nx][ny]) {
-				if(map[nx][ny]=='G') {
-					map[nx][ny]='R';
-					if(map[x][y]== map[nx][ny]) {
-						dfs_b(nx,ny);
-					}
+				if(map[nx][ny]=='R') {
+					map[nx][ny]='G';
+				}
+				if(map[x][y]== map[nx][ny]) {
+					dfs_b(nx,ny);
 				}
 				
 			}
