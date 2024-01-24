@@ -36,7 +36,6 @@ public class n2583 {
 			int x2=Integer.parseInt(st.nextToken());
 			int y2=Integer.parseInt(st.nextToken());
 			
-			
 			for(int x=x1+1; x<=x2; x++) {
 				for(int y=y1+1; y<=y2; y++) {
 					map[x][y]=1;
@@ -65,8 +64,7 @@ public class n2583 {
 		}
 		bw.write(sb+" ");		
 		bw.flush();
-		bw.close();
-		
+		bw.close();	
 	}
 	
 	static void dfs(int x, int y) {
