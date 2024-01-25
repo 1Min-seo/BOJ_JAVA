@@ -4,40 +4,55 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class n2668 {
 	static int n;
-	static int[]arr1;
-	static int[]arr2;
+	static int arr[];
 	static boolean visited[];
-	static int cnt;
-	static int result[];
+	static ArrayList<Integer> list;
+	
 	public static void main(String[] args)throws Exception {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter wr=new BufferedWriter(new OutputStreamWriter(System.out));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		n=Integer.parseInt(br.readLine());
-		arr1=new int[n+1];
-		arr2=new int[n+1];
+		arr=new int[n+1];
 		visited=new boolean[n+1];
+		list=new ArrayList<Integer>();
 		
-		for(int i=1; i<n+1; i++) arr1[i]=i;
-		for(int i=1; i<n+1; i++) arr2[i]=Integer.parseInt(br.readLine());
+		for(int i=1; i<n+1; i++) {
+			arr[i]=Integer.parseInt(br.readLine());
+		}
 		
-		cnt=0;
-		while(true) {
-			for(int i=1; i<n+1; i++) {
-				for(int j=1; j<n+1; j++) {
-					if(arr1[i]==arr2[i]) {
-						visited[i]=true;
-						cnt+=1;
-					}else {
-						if(!visited[j]) {
-						arr1[j]=	
-					}
-				}
+		for(int i=1; i<n+1; i++) {
+			if(!visited[i]) {
+				visited[i]=true;
+				dfs(i,i);
+				visited[i]=false;
 			}
 		}
+		
+		Collections.sort(list);
+		bw.write(list.size()+" ");
+		for(int i:list) {
+			bw.newLine();
+			bw.write(i+" ");
+		}
+		bw.flush();
+		bw.close();
 	}
-}
+	
+	static void dfs(int start, int target) {
+		if(!visited[arr[start]]) {
+			visited[arr[start]]=true;
+			dfs(arr[start],target);
+			visited[arr[start]]=false;
+		}
+		if(arr[start]==target) {
+			list.add(target);
+		}
+	}
+	
 }
