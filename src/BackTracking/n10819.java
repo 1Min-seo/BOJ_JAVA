@@ -30,23 +30,23 @@ public class n10819 {
 	}
 
 	static void back(int depth) {
-		if (depth == n) {
-			int sum = 0;
-			for (int i = 0; i < n - 1; i++) {
-				sum += Math.abs(result[i] - result[i + 1]);
+		if(depth==n) {
+			int sum=0;
+			for(int i=0; i<n-1; i++) {
+				sum+=Math.abs(result[i]-result[i+1]);
 			}
-			max = Math.max(sum, max);
+			max=Math.max(sum, max);
 			return;
 		}
-		for (int i = 0; i < n; i++) {
-			if (!visit[i]) {
-				visit[i] = true;
-				result[depth] = arr[i];
-				back(depth + 1);
-				visit[i] = false;
+		
+		for(int i=0; i<n; i++) {
+			if(!visit[i]) {
+				visit[i]=true;
+				result[depth]=arr[i];
+				back(depth+1);
+				visit[i]=false;
 			}
 		}
-		
 	}
 
 }
