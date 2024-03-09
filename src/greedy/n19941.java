@@ -20,17 +20,17 @@ public class n19941 {
 		}
 		
 		int cnt=0;
-		for(int i=0; i<ch.length; i++) {
+		for(int i=0; i<n; i++) {
 			for(int j=k; j>=1; j--) {
 				if(ch[i]=='P') {
 					if((i-j)>=0 && ch[i-j]=='H') {
 						cnt+=1;
 						ch[i-j]='0';
-						continue;
+						break;
 					}else if((i+j)<n && ch[i+j]=='H') {
 						cnt+=1;
 						ch[i+j]='0';
-						continue;
+						break;
 					}else continue;
 				}
 			}

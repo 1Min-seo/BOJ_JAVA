@@ -26,7 +26,7 @@ public class n2156 {
 			dp[i]=Math.max(Math.max(dp[i-2]+now[i], now[i-1]+dp[i-3]+now[i]),dp[i-1]);
 		}
 		
-		System.out.println(dp[n]);
+		for(int i=1; i<=n; i++) System.out.println(dp[i]);
 	}
 
 }
