@@ -76,5 +76,4 @@ public class n2667 {
 			this.y=y;
 		}
 	}
-
 }
